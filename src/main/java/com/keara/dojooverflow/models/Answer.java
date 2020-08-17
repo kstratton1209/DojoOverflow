@@ -44,7 +44,7 @@ public class Answer {
 	
 	
 	@ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name="question")
+    @JoinColumn(name="question_id")
     private Question question;
 		
    

@@ -25,7 +25,7 @@
         
         <div class="row">
             <div class="col">
-                <form:form action="/question/create" method="post" modelAttribute="question">
+                <form:form action="/question/create" method="post" modelAttribute="quest">
                     
                     <div class="form-group">
                         <label>Question:</label>
@@ -35,10 +35,16 @@
                     
                     <div class="form-group">
                         <label>Tags (separate with space, not comma):</label>
-                        <form:input path="tags" class="form-control" />
+                        <form:input path="tags" class="form-control" list="taglist" />
                         <form:errors path="tags" class="text-danger" />
-                    </div>
                     
+		                    <datalist id="taglist">
+		                        <c:forEach items="${tags}" var="t">
+		                            <option>${t.subject}</option>
+		                        </c:forEach>
+		                    </datalist>
+
+                     </div>
                     <input type="submit" class="btn btn-primary" value="Create" />
                 </form:form> 
             </div>

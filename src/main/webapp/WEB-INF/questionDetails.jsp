@@ -50,9 +50,9 @@
  		                <c:forEach items="${question.getAnswers()}" var="ans">
 		            		<tr>
 		                        <td>
-		                          
+		                         
 		        						${ans.answer}
-		                        		<p></p>
+		                        		
 		                        </td>
 		                    </tr>
 		                    
@@ -64,19 +64,26 @@
                 
             </div>
             <div class="col">
-	          
-	      
-            	
-            	<form action="/${question.id}/answer/create" method="post">
-				<p>
-					<span style="display:block">Answer:</span>
-					<textarea name="answer" rows=6 cols=60 class="form-control" ></textarea>
-				</p>
+	         			
 				
-				<p>${error}</p>
+				 <form:form action="/${question.id}/answer/create" method="post" modelAttribute="answ">
+                    <input type="hidden" name = "question" value = "${question.id}">
+                    <div class="form-group">
+                        <label>Answer:</label>
+                        <form:textarea path="answer" class="form-control" />
+                        <form:errors path="answer" class="text-danger" />
+                    </div>
+                    
+                    
+                    <input type="submit" class="btn btn-primary" value="Answer" />
+                </form:form> 
 				
-				<button type="submit" class="btn btn-primary">Submit Answer</button>
-			</form>
+				
+				
+				
+				
+				
+			
             	
             
             </div> 
